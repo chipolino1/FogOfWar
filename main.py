@@ -98,9 +98,7 @@ async def location_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     grid = get_grid_coords(loc.latitude, loc.longitude)
     await update.message.reply_text(f"Ти в квадраті {grid} ✅")
     
-square_number = get_square_number(grid)
-
-
+    square_number = get_square_number(loc.latitude, loc.longitude)
     await update.message.reply_text(f"квадрат {square_number} ✅")
 	
 
