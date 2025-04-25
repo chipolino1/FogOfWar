@@ -1,8 +1,30 @@
 from telegram import Update, KeyboardButton, ReplyKeyboardMarkup
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, CommandHandler, ContextTypes
 import os
-
 import math
+import psycopg2
+
+# Отримання з'єднувальних даних з Railway
+host = "postgresql://postgres:zNBVWTNZedTfaFNTpCdAIgdQONutixEg@postgres.railway.internal:5432/railway"
+dbname = "MyDataBase"
+user = "postgres"
+password = "zNBVWTNZedTfaFNTpCdAIgdQONutixEg"
+
+# Підключення до бази даних
+conn = psycopg2.connect(host=host, dbname=dbname, user=user, password=password)
+cursor = conn.cursor()
+
+# Виконання SQL запитів
+cursor.execute("SELECT * FROM your_table")
+result = cursor.fetchall()
+print(result)
+
+# Закриття з'єднання
+cursor.close()
+conn.close()
+
+
+
 
 # Координати центру (м. Вінниця)
 latitude_center = 49.2328
