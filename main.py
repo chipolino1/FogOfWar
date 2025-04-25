@@ -19,6 +19,7 @@ cursor.execute("SELECT * FROM Kvadrat")
 result = cursor.fetchall()
 print(result)
 
+
 # Закриття з'єднання
 cursor.close()
 conn.close()
@@ -96,6 +97,7 @@ async def location_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     grid = get_grid_coords(loc.latitude, loc.longitude)
     await update.message.reply_text(f"Ти в квадраті {grid} ✅")
     await update.message.reply_text(f"квадрат {square_number} ✅")
+	await update.message.reply_text(f"квадрат {result} ✅")
 
 
 app = ApplicationBuilder().token(TOKEN).build()
