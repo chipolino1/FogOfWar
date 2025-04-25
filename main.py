@@ -5,8 +5,8 @@ import math
 import psycopg2
 
 # Отримання з'єднувальних даних з Railway
-host = "postgresql://postgres:zNBVWTNZedTfaFNTpCdAIgdQONutixEg@postgres.railway.internal:5432/railway"
-dbname = "MyDataBase"
+host = "postgres.railway.internal"
+dbname = "railway"
 user = "postgres"
 password = "zNBVWTNZedTfaFNTpCdAIgdQONutixEg"
 
@@ -15,7 +15,7 @@ conn = psycopg2.connect(host=host, dbname=dbname, user=user, password=password)
 cursor = conn.cursor()
 
 # Виконання SQL запитів
-cursor.execute("SELECT * FROM your_table")
+cursor.execute("SELECT * FROM Kvadrat")
 result = cursor.fetchall()
 print(result)
 
