@@ -88,12 +88,14 @@ def get_grid_coords(lat, lon):
     grid_y = int(lon_m // GRID_SIZE_METERS)
     return (grid_x, grid_y)
 
-# async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+'''
+ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     kb = [[KeyboardButton("Надіслати локацію", request_location=True)]]
     await update.message.reply_text("Привіт! Надішли свою локацію 🌍", 
                                     reply_markup=ReplyKeyboardMarkup(kb, one_time_keyboard=True, resize_keyboard=True))
 
-# async def location_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+ async def location_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     loc = update.message.location
     grid = get_grid_coords(loc.latitude, loc.longitude)
     await update.message.reply_text(f"Ти в квадраті {grid} ✅")
@@ -101,6 +103,7 @@ def get_grid_coords(lat, lon):
     square_number = get_square_number(loc.latitude, loc.longitude)
     await update.message.reply_text(f"квадрат {square_number} ✅")
 	
+'''
 
 # Стартова команда для надсилання кнопки вибору локації
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -125,9 +128,6 @@ async def handle_location(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Надсилаємо координати назад користувачу
     await update.message.reply_text(f"Твоя локація: \nШирота: {latitude}\nДовгота: {longitude}")
     await update.message.reply_text(f"Твоя локація: \nШирота: {latitude}\nДовгота: {longitude}")
-
-
-
 
 
 
