@@ -16,6 +16,7 @@ cursor = conn.cursor()
 
 # Виконання SQL запитів
 cursor.execute("SELECT * FROM Kvadrat")
+
 result = cursor.fetchall()
 print(result)
 
@@ -96,31 +97,12 @@ async def location_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     loc = update.message.location
     grid = get_grid_coords(loc.latitude, loc.longitude)
     await update.message.reply_text(f"Ти в квадраті {grid} ✅")
+    
+square_number = get_square_number(grid)
+
+
     await update.message.reply_text(f"квадрат {square_number} ✅")
 	
-
-
-# Підключення до бази даних
-conn = psycopg2.connect(host=host, dbname=dbname, user=user, password=password)
-cursor = conn.cursor()
-
-# Виконання SQL запитів
-cursor.execute("SELECT * FROM Kvadrat")
-result = cursor.fetchall()
-print(result)
-
-async def location_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    loc = update.message.location
-    grid = get_grid_coords(loc.latitude, loc.longitude)
-    await update.message.reply_text(f"Ти в квадраті {result} ✅")
-    
-
-# Закриття з'єднання
-cursor.close()
-conn.close()
-
-
-
 
 
 
