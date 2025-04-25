@@ -10,7 +10,7 @@ dbname = "railway"
 user = "postgres"
 password = "zNBVWTNZedTfaFNTpCdAIgdQONutixEg"
 
-'''
+
 # Підключення до бази даних
 conn = psycopg2.connect(host=host, dbname=dbname, user=user, password=password)
 cursor = conn.cursor()
@@ -25,7 +25,7 @@ print(result)
 # Закриття з'єднання
 cursor.close()
 conn.close()
-'''
+
 
 
 
@@ -70,14 +70,14 @@ def get_square_number(lat, lon):
     square_number = (square_y * 1000 + square_x) + 1  # Додаємо 1 для початку з 1
     return square_number
 
-'''
+
 # Приклад використання:
 latitude_input = 49.2400  # GPS координати
 longitude_input = 28.4710
 
 square_number = get_square_number(latitude_input, longitude_input)
 print(f"Номер квадрата: {square_number}")
-'''
+
 
 
 TOKEN = os.getenv("BOT_TOKEN")
@@ -100,10 +100,7 @@ def get_grid_coords(lat, lon):
     loc = update.message.location
     grid = get_grid_coords(loc.latitude, loc.longitude)
     await update.message.reply_text(f"Ти в квадраті {grid} ✅")
-    
-    square_number = get_square_number(loc.latitude, loc.longitude)
-    await update.message.reply_text(f"квадрат {square_number} ✅")
-	
+    	
 
 
 
